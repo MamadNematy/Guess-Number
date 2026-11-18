@@ -2,8 +2,9 @@
 
 A number-guessing game rebuilt with **Next.js, React, TypeScript and Tailwind CSS**. The computer hides a number and you have 10 attempts to find it.
 
-**Live demo:** https://guess-number-green.vercel.app
 ![screenshot](/docs/screenshot.png)
+
+🔗 [Live demo](https://guess-number-green.vercel.app)
 
 ## Features
 
