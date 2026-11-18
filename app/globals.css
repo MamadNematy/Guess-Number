@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #13151a;
+  --color-card: #1b1e25;
+  --color-line: #2b303a;
+  --color-ink: #e8eaee;
+  --color-mute: #9aa1ad;
+  --color-accent: #6aa9ff;
+  --color-warn: #f5b04c;
+  --color-good: #6ee7a0;
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
+}
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes flow { to { stroke-dashoffset: -24; } }
+@keyframes drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(40px, -30px); } }
+@keyframes floatNum { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-28px) rotate(6deg); } }
+@keyframes shakeX { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-10px); } 40% { transform: translateX(10px); } 60% { transform: translateX(-6px); } 80% { transform: translateX(6px); } }
+@keyframes shakeY { 0%, 100% { transform: translateY(0); } 20% { transform: translateY(-10px); } 40% { transform: translateY(10px); } 60% { transform: translateY(-6px); } 80% { transform: translateY(6px); } }
+@keyframes pop { 0% { opacity: 0; transform: scale(0.4); } 70% { transform: scale(1.15); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes confetti { from { opacity: 1; transform: translateY(-10vh) rotate(0deg); } to { opacity: 0; transform: translateY(105vh) rotate(720deg); } }
+@keyframes fly { from { transform: translateX(-120px) rotate(90deg); } to { transform: translateX(calc(100vw + 120px)) rotate(90deg); } }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.show { opacity: 1; transform: none; }
+.rise { animation: rise 0.7s ease both; }
+.pop { animation: pop 0.4s ease both; }
+.shake-high { animation: shakeX 0.5s; }
+.shake-low { animation: shakeY 0.5s; }
+.flow { stroke-dasharray: 6 6; animation: flow 1s linear infinite; }
+.pixels {
+  background-image: linear-gradient(var(--color-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}

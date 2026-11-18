@@ -1,27 +1,43 @@
-# Guess The Number Game
+# Guess The Number
 
-A fun and interactive number guessing game built with HTML, CSS, and JavaScript. Great for beginners learning basic DOM manipulation, conditionals, and user interaction.
+A number-guessing game rebuilt with **Next.js, React, TypeScript and Tailwind CSS**. The computer hides a number and you have 10 attempts to find it.
 
-## 🔗 Live Demo
+**Live demo:** _add your Vercel link here_
 
- [Play it here](https://mamadnematy.github.io/Guess-Number/)
+![screenshot](docs/screenshot.png)
 
----
+## Features
 
-## 🎮 How It Works
+- Three levels: Easy (1-50), Normal (1-100), Hard (1-500)
+- A glowing range bar that narrows after every hint
+- Attempt counter, guess history and best score per level (saved in the browser)
+- Animations: shake after three misses on the same side, confetti on a win
+- Keyboard friendly (Enter to guess), responsive, respects reduced-motion settings
+- Game rules in a separate, unit-tested module
 
-- The computer selects a random number between **1 and 100**.
-- You enter your guess into the input box.
-- You receive instant feedback:
-  - “Too high” if your guess is higher than the number.
-  - “Too low” if your guess is lower than the number.
-  - “Correct!” if you guess the number.
-- After a successful guess, the game can be restarted.
+## History
 
----
+This is version 2. The original (plain HTML, CSS and JavaScript) is kept under the tag `v1-legacy`.
+Version 2 also fixes a bug where the game never ended after the last attempt.
 
-## Technologies Used
+## Run locally
 
-- **HTML** – Page structure
-- **CSS** – Styling and layout
-- **JavaScript** – Game logic and user interaction
+```bash
+npm install
+npm run dev     # http://localhost:3000
+npm test        # unit tests
+npm run build   # production build
+```
+
+## Structure
+
+```
+lib/game.ts         game rules (judge, validate, range, trend)
+lib/game.test.ts    unit tests
+components/Game.tsx the game interface
+app/page.tsx        landing page
+```
+
+## License
+
+MIT
